@@ -2,8 +2,8 @@ FROM jenkins:2.60.1
 
 USER root
 
-RUN apt-get update -y && apt-get install -y make patch gcc build-essential python3 python-pip && rm -rf /var/lib/apt/lists/*
+RUN apt-get update -y && apt-get install -y make patch gcc build-essential python3 python3-pip && rm -rf /var/lib/apt/lists/*
 
-RUN pip install jinja2
+RUN pip3 install jinja2
 
 USER jenkins
