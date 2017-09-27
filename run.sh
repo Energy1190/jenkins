@@ -110,5 +110,5 @@ else
 	done
 	[[ $1 ]] && exec "$@"
 	su -l jenkins
-	exec /bin/tini --/usr/local/bin/jenkins.sh
+	exec /bin/tini /usr/local/bin/jenkins.sh
 fi
