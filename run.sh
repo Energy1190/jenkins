@@ -109,5 +109,10 @@ else
 		sleep 1
 	done
 	[[ $1 ]] && exec "$@"
-	su -p -l jenkins -c '/bin/tini -s /usr/local/bin/jenkins.sh'
+	INIT="/bin/tini -s /usr/local/bin/jenkins.sh"
+	if [ -f "/usr/share/jenkins/rancher/jenkins.sh" ]; then
+	  INIT="/usr/share/jenkins/rancher/jenkins.sh"
+	  sed -i 's/exec \/bin\/tini -- \/usr\/local\/bin\/jenkins.sh/exec \/bin\/tini -s \/usr\/local\/bin\/jenkins.sh/g' /usr/share/jenkins/rancher/jenkins.sh
+	fi
+	su -p -l jenkins -c "${INIT}"
 fi
