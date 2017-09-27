@@ -109,4 +109,6 @@ else
 		sleep 1
 	done
 	[[ $1 ]] && exec "$@"
+	su -l jenkins
+	exec /bin/tini --/usr/local/bin/jenkins.sh
 fi
