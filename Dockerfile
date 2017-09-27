@@ -9,6 +9,6 @@ RUN curl -sSL https://get.docker.com/ | sh
 RUN usermod -aG docker jenkins
 
 ADD run.sh /run.sh
+RUN chmod +x /run.sh
 
 USER jenkins
-ENTRYPOINT ["/run.sh"]
