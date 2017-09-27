@@ -11,4 +11,5 @@ RUN usermod -aG docker jenkins
 ADD run.sh /run.sh
 RUN chmod +x /run.sh
 
-USER jenkins
+RUN echo "jenkins:123" | chpasswd
+CMD ["/run.sh"]
