@@ -109,5 +109,5 @@ else
 		sleep 1
 	done
 	[[ $1 ]] && exec "$@"
-	exec bash --login
+	exec /bin/tini --/usr/local/bin/jenkins.sh
 fi
