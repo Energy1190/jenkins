@@ -109,5 +109,5 @@ else
 		sleep 1
 	done
 	[[ $1 ]] && exec "$@"
-	exec runuser -l jenkins -c '/bin/tini /usr/local/bin/jenkins.sh'
+	su -l jenkins -c '/bin/tini /usr/local/bin/jenkins.sh'
 fi
