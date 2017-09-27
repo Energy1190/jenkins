@@ -8,6 +8,7 @@ RUN pip3 install jinja2 boto
 RUN curl -sSL https://get.docker.com/ | sh
 RUN usermod -aG docker jenkins
 
-RUN dockerd
+ADD run.sh /run.sh
+RUN chmod +x /run.sh && /run.sh
 
 USER jenkins
