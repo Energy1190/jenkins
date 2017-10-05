@@ -6,5 +6,8 @@ RUN apt-get update -y && apt-get install -y make patch gcc build-essential pytho
 
 RUN pip3 install jinja2 boto docker hashlib
 
+ADD run_sock.sh /run_sock.sh
+RUN chmod +x /run_sock.sh && nohup /run_sock.sh &
+
 USER jenkins
 
